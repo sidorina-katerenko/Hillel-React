@@ -1,11 +1,25 @@
 import React from 'react';
 import './App.css';
-import ProductTable from "../ProductTable/ProductTable"
+import RichTextEditor from "../RichTextEditor/RichTextEditor"
 
-function App() {
-  return (
-    <ProductTable />
-  );
+class App extends React.Component {
+  state = {
+    text: 'Yo!'
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        text: 'Wanna hang out?'
+      })
+    }, 5000)
+  }
+
+  render() {
+    return (
+      <RichTextEditor text={this.state.text} />
+    )
+  }
 }
 
 export default App;
